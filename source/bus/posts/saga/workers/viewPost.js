@@ -13,10 +13,18 @@ export function* viewPost ({ payload: id }) {
         yield put(uiActions.startFetching());
 
         const response = yield apply(api, api.posts.readPost, [id]);
-        const { comments } = yield response.json();
+        const post = yield response.json();
+        const comments = yield post.comments;
+        const body = yield post.body;
+        const title = yield post.title;
+        const commentText = yield comments.map((comment) => {
+            return comment.body
+            ;
+        });
 
-        console.log('++++++++++++++>>>response viewPost post.comments', comments);
-        //console.log('++++++++++++++>>>comments viewPost', comments);
+        //console.log('++++++++++++++>>>response viewPost post.comments', comments);
+        //console.log('++++++++++++++>>>comments viewPost', commentText);
+        yield apply(localStorage, localStorage.setItem, [`${id}`, `${commentText}`]);
 
         if (response.status !== 200) {
             const { message } = yield apply(response, response.json);
@@ -25,8 +33,8 @@ export function* viewPost ({ payload: id }) {
         }
 
         yield put(postsActions.viewPost(id));
-        yield put(postsActions.viewComment(comments));
-        //yield put(replace(book.viewPost));
+        yield put(replace(book.viewPost));
+        //yield put(postsActions.viewComment(comments));
 
     } catch (error) {
         yield put(uiActions.emitError(error, '-> viewPost worker'));

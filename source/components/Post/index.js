@@ -21,7 +21,7 @@ export default class Post extends Component {
             title,
         } = this.props;
 
-        console.log('this.props//////////////////////', this.props);
+        //console.log('this.props//////////////////////', this.props);
 
         return (
             <section className = { Styles.post }>

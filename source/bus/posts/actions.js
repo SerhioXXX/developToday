@@ -36,4 +36,10 @@ export const postsActions = {
             payload: id,
         };
     },
+    viewCommentAsync: (id) => {
+        return {
+            type:    types.VIEW_COMMENT_ASYNC,
+            payload: id,
+        };
+    },
 };

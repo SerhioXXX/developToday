@@ -46,7 +46,7 @@ export default class Posts extends Component {
                         //author = { post.get('author') }
                         body = { post.get('body') }
                         //created = { post.get('created') }
-                        comments = { post.get('comments') }
+                        //comments = { post.get('comments') }
                         id = { post.get('id') }
                         title = { post.get('title') }
                     />
