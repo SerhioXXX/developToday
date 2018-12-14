@@ -28,13 +28,13 @@ export default class Post extends Component {
         return (
             !!comments ?
                 <section className = { Styles.post }>
-                    <p> С комментами!!!!!!!!!!!!!!</p>
+                    <p> Запрос получения постов c данными [comments]</p>
                     <h1>{title}</h1>
                     <p>{body}</p>
                 </section>
                 :
                 <section className = { Styles.post }>
-                    <p> Без комментов!!!!!!!!!!!!!!</p>
+                    <p> Запрос получения постов без данных [comments]</p>
                     <h1 onClick = { this._readPost }>{title}</h1>
                     <p>{body}</p>
                 </section>

@@ -44,6 +44,7 @@ export default class ReadPost extends Component {
 
         if (List.isList(list)) {
             const newList = list.toJS();
+
             console.log('newList', newList);
 
         }
@@ -65,9 +66,8 @@ export default class ReadPost extends Component {
         };
 
         return (
-            <section>
+            <section className = { Styles.post }>
                 <FlipMove>{postsJSX()}</FlipMove>
-                
             </section>
         );
     }
