@@ -1,5 +1,6 @@
 // Core
 import React, { Component } from 'react';
+import { Map, List } from 'immutable';
 //import moment from 'moment';
 
 // Instruments
@@ -19,15 +20,24 @@ export default class Post extends Component {
         const {
             body,
             title,
+            comments,
         } = this.props;
 
         //console.log('this.props//////////////////////', this.props);
 
         return (
-            <section className = { Styles.post }>
-                <h1 onClick = { this._readPost }>{title}</h1>
-                <p>{body}</p>
-            </section>
+            !!comments ?
+                <section className = { Styles.post }>
+                    <p> С комментами!!!!!!!!!!!!!!</p>
+                    <h1>{title}</h1>
+                    <p>{body}</p>
+                </section>
+                :
+                <section className = { Styles.post }>
+                    <p> Без комментов!!!!!!!!!!!!!!</p>
+                    <h1 onClick = { this._readPost }>{title}</h1>
+                    <p>{body}</p>
+                </section>
         );
     }
 }
