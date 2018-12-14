@@ -3,7 +3,7 @@ import Loading from './Loading';
 import Post from './Post';
 import Spinner from './Spinner';
 import Posts from './Posts';
-import Comments from './Comments';
+import ReadPost from './ReadPost';
 
 export {
     Catcher,
@@ -11,5 +11,5 @@ export {
     Post,
     Spinner,
     Posts,
-    Comments
+    ReadPost
 };

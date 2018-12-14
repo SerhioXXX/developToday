@@ -12,7 +12,8 @@ export const postsReducer = (state = initialState, action) => {
             return fromJS(action.payload);
 
         case types.VIEW_POST:
-            return state.filter((post) => post.get('id') === action.payload);
+            //return state.filter((post) => post.get('id') === action.payload);
+            return fromJS(action.payload);
 
         case types.VIEW_COMMENT:
             return fromJS(action.payload);

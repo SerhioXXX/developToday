@@ -32,8 +32,8 @@ export function* viewPost ({ payload: id }) {
             throw new Error(message);
         }
 
-        yield put(postsActions.viewPost(id));
         yield put(replace(book.viewPost));
+        yield put(postsActions.viewPost(post));
         //yield put(postsActions.viewComment(comments));
 
     } catch (error) {

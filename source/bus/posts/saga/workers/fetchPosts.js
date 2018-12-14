@@ -12,7 +12,7 @@ export function* fetchPosts () {
         const response = yield apply(api, api.posts.listPosts);
         const posts = yield response.json();
 
-        //console.log('=======================>posts fetchPosts array', posts);
+        console.log('=======================>fetchPosts posts: [array]', posts);
 
         if (response.status !== 200) {
             throw new Error();

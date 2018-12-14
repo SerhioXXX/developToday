@@ -11,10 +11,10 @@ export const postsActions = {
             payload: posts,
         };
     },
-    viewPost: (id) => {
+    viewPost: (post) => {
         return {
             type:    types.VIEW_POST,
-            payload: id,
+            payload: post,
         };
     },
     viewComment: (comment) => {
