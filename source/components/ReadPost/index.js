@@ -45,10 +45,37 @@ export default class ReadPost extends Component {
         if (List.isList(list)) {
             const newList = list.toJS();
 
-            console.log('newList', newList);
+            const commentJSX = newList.map((item) => {
+                return (<p className = { Styles.comment } key = { item.id }>{item.body}</p>);
+            });
 
+            console.log('commentJSX', commentJSX);
+
+            //return commentJSX;
+
+            const postsJSX = () => {
+                return (
+                    <Catcher key = { post.get('id') }>
+                        <Post
+                            actions = { actions }
+                            //author = { post.get('author') }
+                            body = { post.get('body') }
+                            //created = { post.get('created') }
+                            comments = { post.get('comments') }
+                            id = { post.get('id') }
+                            title = { post.get('title') }
+                        />
+                    </Catcher>
+                );
+            };
+
+            return (
+                <section className = { Styles.post }>
+                    <FlipMove>{postsJSX()}</FlipMove>
+                    <FlipMove>{commentJSX}</FlipMove>
+                </section>
+            );
         }
-
         const postsJSX = () => {
             return (
                 <Catcher key = { post.get('id') }>
@@ -72,17 +99,4 @@ export default class ReadPost extends Component {
         );
     }
 
-/*
-    render () {
-        const { posts, id } = this.props;
-
-        console.log('this.state Comments-------->>', posts);
-        console.log('this.props Comments-------->>', this.props);
-
-        return (
-            <section>
-                <h1>Комментарии: {id}</h1>
-            </section>
-        );
-    }*/
 }
