@@ -1,5 +1,5 @@
 //Core
-import { fromJS, List } from 'immutable';
+import { fromJS, List, Map } from 'immutable';
 
 //Instruments
 import { types } from './types';
@@ -14,6 +14,7 @@ export const postsReducer = (state = initialState, action) => {
         case types.VIEW_POST:
             //return state.filter((post) => post.get('id') === action.payload);
             return fromJS(action.payload);
+            //return action.payload;
 
         case types.VIEW_COMMENT:
             return fromJS(action.payload);

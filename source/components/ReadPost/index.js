@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import FlipMove from 'react-flip-move';
+import { Map } from 'immutable';
 
 //Actions
 import { postsActions } from '../../bus/posts/actions';
@@ -14,7 +15,7 @@ import { Catcher, Post } from '../../components';
 
 const mapStateToProps = (state) => {
     return {
-        post: state.post,
+        post: state.posts,
     };
 };
 
@@ -35,13 +36,16 @@ export default class ReadPost extends Component {
         const { actions, post } = this.props;
 
         console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~this.props in ReadPost~~~~~~~~~~~~~~~~~~~~~~~~~~~', this.props);
+        console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~Map.isMap(post)~~~~~~~~~~~~~~~~~~~~~~~~~~~', Map.isMap(post));
+        console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~post.get(body)~~~~~~~~~~~~~~~~~~~~~~~~~~~', post.get('body'));
+        console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~post.get(body)~~~~~~~~~~~~~~~~~~~~~~~~~~~', post.get('comments'));
 
-        const postsJSX = (post) => {
+        const postsJSX = () => {
             return (
                 <Catcher key = { post.get('id') }>
                     <Post
                         actions = { actions }
-                        //author = { data.get('author') }
+                        //author = { post.get('author') }
                         body = { post.get('body') }
                         //created = { post.get('created') }
                         comments = { post.get('comments') }
@@ -53,9 +57,10 @@ export default class ReadPost extends Component {
         };
 
         return (
-            <section className = { Styles.posts }>
+            <section>
                 <FlipMove>{postsJSX}</FlipMove>
-                <p>{post.get('comments')}</p>
+                <h1>{post.get('title')}</h1>
+                <p>{post.get('body')}</p>
             </section>
         );
     }

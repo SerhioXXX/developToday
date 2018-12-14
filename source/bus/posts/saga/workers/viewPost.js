@@ -33,7 +33,9 @@ export function* viewPost ({ payload: id }) {
         }
 
         yield put(replace(book.viewPost));
+        console.log('$$$$$$$$$$$$$$$$$$>>>massiv post posle redirecta i pered zapuskom viewPost action', post);
         yield put(postsActions.viewPost(post));
+
         //yield put(postsActions.viewComment(comments));
 
     } catch (error) {
