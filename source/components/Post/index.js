@@ -26,9 +26,10 @@ export default class Post extends Component {
         const { body, title } = this.props;
 
         return (
-            <section className = { Styles.post } onClick = { this._navigate }>
-                <h1 onClick = { this._readPost }>{title}</h1>
+            <section className = { Styles.post } >
+                <h1 onClick = { this._navigate } >{title}</h1>
                 <p>{body}</p>
+                <div onClick = { this._readPost } >[read comments]</div>
             </section>
         );
     }

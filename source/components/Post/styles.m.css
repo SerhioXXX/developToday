@@ -63,6 +63,15 @@
         line-height: 1.4;
         color: #374348;
     }
+        & div {
+        cursor: pointer;
+        text-align: right;
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 3;
+        color: var(--paletteColor7);
+    }
 
     & .cross {
         content: '';
