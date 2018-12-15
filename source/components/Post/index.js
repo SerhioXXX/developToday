@@ -18,6 +18,7 @@ export default class Post extends Component {
     };
 
     _navigate = () => {
+        console.log('------------history push url', `${book.posts}/${this.props.id}`);
         history.push(`${book.posts}/${this.props.id}`);
     };
 

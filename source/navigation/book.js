@@ -1,4 +1,4 @@
 export const book = Object.freeze({
-    latestPosts: '/posts',
-    viewPost:    '/posts/:id',
+    posts:    '/posts',
+    postById: '/posts/:id',
 });
