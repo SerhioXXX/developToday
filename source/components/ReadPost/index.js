@@ -46,7 +46,7 @@ export default class ReadPost extends Component {
             const newList = list.toJS();
 
             const commentJSX = newList.map((item) => {
-                return (<p className = { Styles.comment } key = { item.id }>{item.body}</p>);
+                return (<p className = { Styles.comment } key = { item.id }>comment[{item.id}]::{item.body}</p>);
             });
 
             console.log('commentJSX', commentJSX);
