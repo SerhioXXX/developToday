@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import FlipMove from 'react-flip-move';
 import { Map, List } from 'immutable';
+import {
+    CSSTransition,
+    TransitionGroup
+} from 'react-transition-group';
 
 //Actions
 import { postsActions } from '../../bus/posts/actions';
@@ -46,7 +50,26 @@ export default class ReadPost extends Component {
             const newList = list.toJS();
 
             const commentJSX = newList.map((item) => {
-                return (<p className = { Styles.comment } key = { item.id }>comment[{item.id}]::{item.body}</p>);
+                return (
+                    <CSSTransition
+                        classNames = { {
+                            enter:       Styles.postInStart,
+                            enterActive: Styles.postInEnd,
+                            exit:        Styles.postOutStart,
+                            exitActive:  Styles.postOutEnd,
+                        } }
+                        key = { item.id }
+                        timeout = { {
+                            enter: 5000,
+                            exit:  4000,
+                        } }>
+                        <Catcher >
+                            <p className = { Styles.comment } key = { item.id }>comment[{item.id}]::{item.body}</p>
+                        </Catcher>
+                    </CSSTransition>
+
+                );
+
             });
 
             console.log('commentJSX', commentJSX);
@@ -72,7 +95,7 @@ export default class ReadPost extends Component {
             return (
                 <section className = { Styles.post }>
                     <FlipMove>{postsJSX()}</FlipMove>
-                    <FlipMove>{commentJSX}</FlipMove>
+                    <TransitionGroup>{commentJSX}</TransitionGroup>
                 </section>
             );
         }

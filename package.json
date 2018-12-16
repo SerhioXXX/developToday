@@ -23,6 +23,7 @@
         "gh-pages": "gh-pages -d build"
     },
     "dependencies": {
+        "@types/react-transition-group": "^2.0.14",
         "classnames": "^2.2.6",
         "formik": "~1.0.2",
         "gsap": "^2.0.1",
@@ -36,7 +37,7 @@
         "react-redux-form": "^1.16.9",
         "react-router-dom": "^4.3.1",
         "react-router-redux": "^5.0.0-alpha.8",
-        "react-transition-group": "~2.4.0",
+        "react-transition-group": "^2.4.0",
         "redux": "^4.0.0",
         "redux-saga": "~0.16.0",
         "redux-thunk": "^2.3.0",
